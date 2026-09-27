@@ -24,3 +24,15 @@ def test_sort_by_date_descending() -> None:
 def test_sort_by_date_ascending() -> None:
     result = sort_by_date(OPERATIONS, descending=False)
     assert [operation["id"] for operation in result] == [3, 1, 2]
+
+
+def test_filter_by_state_does_not_change_input() -> None:
+    original = OPERATIONS.copy()
+    filter_by_state(OPERATIONS)
+    assert OPERATIONS == original
+
+
+def test_sort_by_date_does_not_change_input() -> None:
+    original = OPERATIONS.copy()
+    sort_by_date(OPERATIONS)
+    assert OPERATIONS == original
