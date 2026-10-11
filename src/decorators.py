@@ -12,6 +12,7 @@ def log(
     """Логирует результат выполнения функции или ошибку."""
 
     def decorator(func: Callable[P, R]) -> Callable[P, R]:
+        """Оборачивает функцию и записывает результат её выполнения или ошибку."""
         @wraps(func)
         def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             if filename is not None:
