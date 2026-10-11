@@ -9,6 +9,8 @@ R = TypeVar("R")
 def log(
     filename: str | None = None,
 ) -> Callable[[Callable[P, R]], Callable[P, R]]:
+    """Логирует результат выполнения функции или ошибку."""
+
     def decorator(func: Callable[P, R]) -> Callable[P, R]:
         @wraps(func)
         def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
